@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"lim-23333.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="正经写了一个带权并查集的简单题。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「UVALive 4487」Exclusive OR">
+<meta property="og:url" content="http://lim-23333.github.io/2020/02/25/%E3%80%8CUVALive-4487%E3%80%8DExclusive-OR/index.html">
+<meta property="og:site_name" content="LiM_233&#39;s Blog">
+<meta property="og:description" content="正经写了一个带权并查集的简单题。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-25T02:27:11.000Z">
+<meta property="article:modified_time" content="2020-02-25T02:35:28.395Z">
+<meta property="article:author" content="Mingyu Li">
+<meta property="article:tag" content="DSU">
+<meta property="article:tag" content="模拟">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://lim-23333.github.io/2020/02/25/%E3%80%8CUVALive-4487%E3%80%8DExclusive-OR/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>「UVALive 4487」Exclusive OR | LiM_233's Blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">LiM_233's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/02/25/%E3%80%8CUVALive-4487%E3%80%8DExclusive-OR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mingyu Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiM_233's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          「UVALive 4487」Exclusive OR
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-25 10:27:11 / 修改时间：10:35:28" itemprop="dateCreated datePublished" datetime="2020-02-25T10:27:11+08:00">2020-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>正经写了一个带权并查集的简单题。</p>
+<a id="more"></a>
+<p>这个题的操作一共有两种：第一种是告诉你$X_p \text{xor} X_q = v$，要判断与之前的信息是否矛盾。第二种是让你求一系列$X$的xor和，同时也要判断不知道的情况。</p>
+<p>不要问我为什么题目中是三个操作，因为第一个操作<strong>就是</strong>第二个操作。</p>
+<p>首先你需要读入，这个可以用<code>sscanf</code>。然后就可以开始带权并查集搞了。</p>
+<p>首先并查集里维护$xor_{u}$，代表$X_u \text{xor} X_{f_u}$的值。这个东西一开始都不知道，所以都设成0.</p>
+<p>当进行路径压缩的时候这么写：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x == f[x]) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">int</span> get = find(f[x]);</span><br><span class="line">	xor_[x] ^= xor_[f[x]];</span><br><span class="line">	<span class="keyword">return</span> f[x] = get; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个东西成立是因为$(a xor b) xor (b xor c)=a xor c$.</p>
+<p>然后如果他告诉你了一条关系，你先找到对应并查集的代表，然后合并一下，注意要特判下恒0的情况。</p>
+<p>这里合并要判断他俩在不在一个集合里，可以结合代码理解：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fp = find(p), fq = find(q);</span><br><span class="line">	<span class="keyword">if</span> (fp == fq) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((xor_[p] ^ xor_[q]) != v) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fp == n) swap(fp, fq);</span><br><span class="line">	f[fp] = fq;</span><br><span class="line">	xor_[fp] = (xor_[p] ^ xor_[q] ^ v);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>求那个东西也挺有意思的。</p>
+<p>考虑把在一个森林里的所有东西一块计算。</p>
+<p>注意到我们能搞出来的xor和=x1 xor xf xor x2 xor xf xor…xor xp xor xf</p>
+<p>如果我们消不掉xf，除非xf=0，否则一定无解。</p>
+<p>否则直接消即可。不知道为啥uva一直过不了，但是hdu就能过…</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> test(...) fprintf(stderr, __VA_ARGS__)</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> dbg(x) cerr &lt;&lt; #x &lt;&lt; <span class="meta-string">" = "</span> &lt;&lt; x &lt;&lt; <span class="meta-string">'\n'</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> pair &lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; pii;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span> &lt;<span class="keyword">int</span>&gt; vi;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> ui;</span><br><span class="line"><span class="keyword">typedef</span> <span class="built_in">vector</span> &lt;pair &lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; &gt; edges;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> N = <span class="number">1000005</span>;</span><br><span class="line"><span class="keyword">char</span> s[N], from[N];</span><br><span class="line"><span class="keyword">int</span> f[N], xor_[N], n, q; </span><br><span class="line"><span class="comment">// xor_[x]: x -&gt; fa[x]这条边的xor值</span></span><br><span class="line"><span class="comment">// 路径压缩的时候顺带维护 </span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (x == f[x]) <span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">int</span> get = find(f[x]);</span><br><span class="line">	xor_[x] ^= xor_[f[x]];</span><br><span class="line">	<span class="keyword">return</span> f[x] = get; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> case_num;</span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> p, <span class="keyword">int</span> q, <span class="keyword">int</span> v)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fp = find(p), fq = find(q);</span><br><span class="line">	<span class="keyword">if</span> (fp == fq) &#123;</span><br><span class="line">		<span class="keyword">if</span> ((xor_[p] ^ xor_[q]) != v) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (fp == n) swap(fp, fq);</span><br><span class="line">	f[fp] = fq;</span><br><span class="line">	xor_[fp] = (xor_[p] ^ xor_[q] ^ v);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(vi now)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k = now.size(), ans = <span class="number">0</span>;</span><br><span class="line">	<span class="function">vi <span class="title">ind</span><span class="params">(k)</span></span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (ind[i]) <span class="keyword">continue</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">int</span> fi = find(now[i]), cnt = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = i; j &lt; k; ++j) &#123;</span><br><span class="line">			<span class="keyword">int</span> fj = find(now[j]);</span><br><span class="line">			<span class="keyword">if</span> (!ind[j] &amp;&amp; fi == fj) &#123;</span><br><span class="line">				cnt++;</span><br><span class="line">				ind[j] = <span class="number">1</span>;</span><br><span class="line">				ans ^= xor_[now[j]];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> ((cnt &amp; <span class="number">1</span>) &amp;&amp; fi != n) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans; </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Case %d:\n"</span>, ++case_num);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">1000000</span>; ++i)</span><br><span class="line">		f[i] = i, xor_[i] = <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">bool</span> flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> facts = <span class="number">0</span>; </span><br><span class="line">	<span class="keyword">while</span> (q--) &#123;</span><br><span class="line">		<span class="keyword">char</span> op[<span class="number">3</span>];</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>, op);</span><br><span class="line">		<span class="keyword">if</span> (op[<span class="number">0</span>] == <span class="string">'I'</span>) &#123;</span><br><span class="line">			gets(from);</span><br><span class="line">			<span class="keyword">int</span> space = <span class="number">0</span>, p, q, v; </span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; from[i] != <span class="string">'\0'</span>; ++i) </span><br><span class="line">				<span class="keyword">if</span> (from[i] == <span class="string">' '</span>) ++space;</span><br><span class="line">	<span class="comment">//		dbg(space);</span></span><br><span class="line">			<span class="keyword">if</span> (space == <span class="number">1</span>) &#123;</span><br><span class="line">				<span class="built_in">sscanf</span>(from, <span class="string">"%d%d"</span>, &amp;p, &amp;v);</span><br><span class="line">				q = n;</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (space == <span class="number">2</span>) </span><br><span class="line">				<span class="built_in">sscanf</span>(from, <span class="string">"%d%d%d"</span>, &amp;p, &amp;q, &amp;v);</span><br><span class="line">			++facts; </span><br><span class="line">			<span class="keyword">if</span> (flag) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">if</span> (!merge(p, q, v)) &#123;</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"The first %d facts are conflicting.\n"</span>, facts);</span><br><span class="line">				flag = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (op[<span class="number">0</span>] == <span class="string">'Q'</span>) &#123;</span><br><span class="line">			<span class="keyword">int</span> k;</span><br><span class="line">			<span class="built_in">scanf</span> (<span class="string">"%d"</span>, &amp;k);</span><br><span class="line">			<span class="function">vi <span class="title">q</span><span class="params">(k)</span></span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; ++i) <span class="built_in">scanf</span> (<span class="string">"%d"</span>, &amp;q[i]);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">if</span> (flag) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">int</span> result = ans(q);</span><br><span class="line">			<span class="keyword">if</span> (result == <span class="number">-1</span>) &#123;</span><br><span class="line">				<span class="built_in">puts</span>(<span class="string">"I don't know."</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, result);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">puts</span>(<span class="string">""</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> LOCAL</span></span><br><span class="line">	freopen(<span class="string">"sample.in"</span>, <span class="string">"r"</span>, <span class="built_in">stdin</span>);</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line">  <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;q) &amp;&amp; (n || q)) solve();</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/DSU/" rel="tag"># DSU</a>
+              <a href="/tags/%E6%A8%A1%E6%8B%9F/" rel="tag"># 模拟</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/25/%E3%80%8CSDOI-2016%E3%80%8D%E7%94%9F%E6%88%90%E9%AD%94%E5%92%92/" rel="prev" title="「SDOI 2016」生成魔咒">
+      <i class="fa fa-chevron-left"></i> 「SDOI 2016」生成魔咒
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/25/%E3%80%8CPOI-2005%E3%80%8DSZA-Template/" rel="next" title="「POI 2005」SZA-Template">
+      「POI 2005」SZA-Template <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Mingyu Li</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="/myli_bdfz@126.com" title="E-Mail → myli_bdfz@126.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.zhihu.com/people/lim-817" title="知乎 → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;lim-817" rel="noopener" target="_blank"><i class="fa fa-fw fa-snapchat"></i>知乎</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1504094517&website=www.oicqzone.com" title="QQ → tencent:&#x2F;&#x2F;AddContact&#x2F;?fromId&#x3D;45&amp;fromSubId&#x3D;1&amp;subcmd&#x3D;all&amp;uin&#x3D;1504094517&amp;website&#x3D;www.oicqzone.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Mingyu Li</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
