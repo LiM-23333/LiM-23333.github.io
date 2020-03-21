@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"lim-23333.github.io","root":"/","scheme":"Gemini","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="LiM_233&#39;s Blog">
-<meta property="og:url" content="http://lim-23333.github.io/archives/2020/index.html">
+  <meta name="description" content="列一下一些有点意思&#x2F;自己降智思考了很长时间的题。 水の数列： 直接离线维护一下答案，然后rmq维护一下区间max，目前好像被卡空间了？毒瘤 XR-1 逛森林：优化建图没写过，先放一放 NOI 2010 超级钢琴：套路题，优先队列维护可选决策最大值 POI 2015 LOG: 不会，看了策略之后会了。 策略就是设定一个“每轮选择的”表格，然后往表格里面填数，并且一行不能填同一个位置的数。 考虑&amp;gt">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构专题复习">
+<meta property="og:url" content="http://lim-23333.github.io/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="LiM_233&#39;s Blog">
+<meta property="og:description" content="列一下一些有点意思&#x2F;自己降智思考了很长时间的题。 水の数列： 直接离线维护一下答案，然后rmq维护一下区间max，目前好像被卡空间了？毒瘤 XR-1 逛森林：优化建图没写过，先放一放 NOI 2010 超级钢琴：套路题，优先队列维护可选决策最大值 POI 2015 LOG: 不会，看了策略之后会了。 策略就是设定一个“每轮选择的”表格，然后往表格里面填数，并且一行不能填同一个位置的数。 考虑&amp;gt">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-03-01T14:19:37.000Z">
+<meta property="article:modified_time" content="2020-03-03T05:14:23.494Z">
 <meta property="article:author" content="Mingyu Li">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://lim-23333.github.io/archives/2020/">
+<link rel="canonical" href="http://lim-23333.github.io/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/">
 
 
 <script id="page-configurations">
@@ -36,11 +40,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>归档 | LiM_233's Blog</title>
+  <title>数据结构专题复习 | LiM_233's Blog</title>
   
 
 
@@ -154,232 +158,114 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 12 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mingyu Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiM_233's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构专题复习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 22:19:37" itemprop="dateCreated datePublished" datetime="2020-03-01T22:19:37+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 13:14:23" itemprop="dateModified" datetime="2020-03-03T13:14:23+08:00">2020-03-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2020</h1>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-21T05:51:56+08:00"
-              content="2020-03-21">
-          03-21
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/21/CF-Global-Round-7/" itemprop="url">
-            <span itemprop="name">CF Global Round 7</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-03-01T22:19:37+08:00"
-              content="2020-03-01">
-          03-01
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/" itemprop="url">
-            <span itemprop="name">数据结构专题复习</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-26T19:29:07+08:00"
-              content="2020-02-26">
-          02-26
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/26/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" itemprop="url">
-            <span itemprop="name">具体数学 学习记录</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-25T10:33:39+08:00"
-              content="2020-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/25/%E3%80%8CNOI-2011%E3%80%8D%E9%98%BF%E7%8B%B8%E7%9A%84%E6%89%93%E5%AD%97%E6%9C%BA/" itemprop="url">
-            <span itemprop="name">「NOI 2011」阿狸的打字机</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-25T10:32:33+08:00"
-              content="2020-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/25/%E3%80%8CPOI-2005%E3%80%8DSZA-Template/" itemprop="url">
-            <span itemprop="name">「POI 2005」SZA-Template</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-25T10:27:11+08:00"
-              content="2020-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/25/%E3%80%8CUVALive-4487%E3%80%8DExclusive-OR/" itemprop="url">
-            <span itemprop="name">「UVALive 4487」Exclusive OR</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-25T10:25:26+08:00"
-              content="2020-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/25/%E3%80%8CSDOI-2016%E3%80%8D%E7%94%9F%E6%88%90%E9%AD%94%E5%92%92/" itemprop="url">
-            <span itemprop="name">「SDOI 2016」生成魔咒</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-25T10:19:30+08:00"
-              content="2020-02-25">
-          02-25
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/25/%E3%80%8CHAOI2016-%E6%89%BE%E7%9B%B8%E5%90%8C%E5%AD%97%E7%AC%A6%E3%80%8D/" itemprop="url">
-            <span itemprop="name">「HAOI2016 找相同字符」</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-24T21:52:49+08:00"
-              content="2020-02-24">
-          02-24
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/24/%E3%80%8CAHOI-2013%E3%80%8D%E5%B7%AE%E5%BC%82/" itemprop="url">
-            <span itemprop="name">「AHOI 2013」差异 </span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2020-02-24T21:18:04+08:00"
-              content="2020-02-24">
-          02-24
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2020/02/24/%E4%B8%B2%E7%AE%80%E5%8D%95%E9%A2%98%E9%80%89%E6%B0%B4/" itemprop="url">
-            <span itemprop="name">串简单题选水</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+        <p>列一下一些有点意思/自己降智思考了很长时间的题。</p>
+<p>水の数列：</p>
+<p>直接离线维护一下答案，然后rmq维护一下区间max，目前好像被卡空间了？毒瘤</p>
+<p>XR-1 逛森林：优化建图没写过，先放一放</p>
+<p>NOI 2010 超级钢琴：套路题，优先队列维护可选决策最大值</p>
+<p>POI 2015 LOG:</p>
+<p>不会，看了策略之后会了。</p>
+<p>策略就是设定一个“每轮选择的”表格，然后往表格里面填数，并且一行不能填同一个位置的数。</p>
+<p>考虑&gt;=s的数，这些数肯定可以放进去s个，也就是每行（c个）的前num个放完这些数之后都被占了。</p>
+<p>考虑&lt;s的数，易证都可以造成贡献，那就看(c-num)*s是否不比small_sum大就可以了，数据结构随便维护一下。</p>
+<hr>
+<p>USACO17 JAN Promotion Counting P</p>
+<p>无脑线段树合并的就8说了</p>
+<p>考虑我们如何计算一个子树内的答案，直接计算好像有点麻烦。</p>
+<p>回顾一下我们如何快速计算一个东西的祖先的答案，大概长这个亚子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function">  <span class="title">update</span><span class="params">(u)</span></span></span><br><span class="line"><span class="function">  <span class="title">for</span> <span class="params">(v in g[u])</span> <span class="title">dfs</span><span class="params">(v)</span></span></span><br><span class="line"><span class="function">  <span class="title">reset</span><span class="params">(u)</span></span></span><br></pre></td></tr></table></figure>
+<p>那子树也是异曲同工，只不过要做一点点修改。</p>
+<p>因为你仔细思考一下发现：诶，我是不是只需要维护dfs前和dfs后的<strong>净差</strong>就可以了？答案是肯定的。</p>
+<p>所以代码也很好写，大概长<a href="https://paste.ubuntu.com/p/vt38Bw6mNC/" target="_blank" rel="noopener">这样</a>，感觉想懂了之后很好理解，比线段树合并好写/快多了</p>
 
     </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/26/%E5%85%B7%E4%BD%93%E6%95%B0%E5%AD%A6-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" rel="prev" title="具体数学 学习记录">
+      <i class="fa fa-chevron-left"></i> 具体数学 学习记录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/21/CF-Global-Round-7/" rel="next" title="CF Global Round 7">
+      CF Global Round 7 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
   </div>
-  
-  
-  
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
-
 
 
           </div>
@@ -554,6 +440,53 @@
   
 
   
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
