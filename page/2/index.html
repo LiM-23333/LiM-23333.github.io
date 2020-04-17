@@ -159,6 +159,239 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mingyu Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiM_233's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/03/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%93%E9%A2%98%E5%A4%8D%E4%B9%A0/" class="post-title-link" itemprop="url">数据结构专题复习</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-03-01 22:19:37" itemprop="dateCreated datePublished" datetime="2020-03-01T22:19:37+08:00">2020-03-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-03 13:14:23" itemprop="dateModified" datetime="2020-03-03T13:14:23+08:00">2020-03-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">笔记</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>列一下一些有点意思/自己降智思考了很长时间的题。</p>
+<p>水の数列：</p>
+<p>直接离线维护一下答案，然后rmq维护一下区间max，目前好像被卡空间了？毒瘤</p>
+<p>XR-1 逛森林：优化建图没写过，先放一放</p>
+<p>NOI 2010 超级钢琴：套路题，优先队列维护可选决策最大值</p>
+<p>POI 2015 LOG:</p>
+<p>不会，看了策略之后会了。</p>
+<p>策略就是设定一个“每轮选择的”表格，然后往表格里面填数，并且一行不能填同一个位置的数。</p>
+<p>考虑&gt;=s的数，这些数肯定可以放进去s个，也就是每行（c个）的前num个放完这些数之后都被占了。</p>
+<p>考虑&lt;s的数，易证都可以造成贡献，那就看(c-num)*s是否不比small_sum大就可以了，数据结构随便维护一下。</p>
+<hr>
+<p>USACO17 JAN Promotion Counting P</p>
+<p>无脑线段树合并的就8说了</p>
+<p>考虑我们如何计算一个子树内的答案，直接计算好像有点麻烦。</p>
+<p>回顾一下我们如何快速计算一个东西的祖先的答案，大概长这个亚子：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">dfs</span> <span class="params">(<span class="keyword">int</span> u)</span></span></span><br><span class="line"><span class="function">  <span class="title">update</span><span class="params">(u)</span></span></span><br><span class="line"><span class="function">  <span class="title">for</span> <span class="params">(v in g[u])</span> <span class="title">dfs</span><span class="params">(v)</span></span></span><br><span class="line"><span class="function">  <span class="title">reset</span><span class="params">(u)</span></span></span><br></pre></td></tr></table></figure>
+<p>那子树也是异曲同工，只不过要做一点点修改。</p>
+<p>因为你仔细思考一下发现：诶，我是不是只需要维护dfs前和dfs后的<strong>净差</strong>就可以了？答案是肯定的。</p>
+<p>所以代码也很好写，大概长<a href="https://paste.ubuntu.com/p/vt38Bw6mNC/" target="_blank" rel="noopener">这样</a>，感觉想懂了之后很好理解，比线段树合并好写/快多了</p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/02/25/%E3%80%8CNOI-2011%E3%80%8D%E9%98%BF%E7%8B%B8%E7%9A%84%E6%89%93%E5%AD%97%E6%9C%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mingyu Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiM_233's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/25/%E3%80%8CNOI-2011%E3%80%8D%E9%98%BF%E7%8B%B8%E7%9A%84%E6%89%93%E5%AD%97%E6%9C%BA/" class="post-title-link" itemprop="url">「NOI 2011」阿狸的打字机</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-25 10:33:39 / 修改时间：10:34:14" itemprop="dateCreated datePublished" datetime="2020-02-25T10:33:39+08:00">2020-02-25</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>首先你需要明白，你不能把每个串都一遍遍插入，复杂度不对。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/25/%E3%80%8CNOI-2011%E3%80%8D%E9%98%BF%E7%8B%B8%E7%9A%84%E6%89%93%E5%AD%97%E6%9C%BA/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/02/25/%E3%80%8CPOI-2005%E3%80%8DSZA-Template/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Mingyu Li">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LiM_233's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/02/25/%E3%80%8CPOI-2005%E3%80%8DSZA-Template/" class="post-title-link" itemprop="url">「POI 2005」SZA-Template</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-02-25 10:32:33 / 修改时间：10:34:53" itemprop="dateCreated datePublished" datetime="2020-02-25T10:32:33+08:00">2020-02-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>先来观察答案的几个强性质。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/02/25/%E3%80%8CPOI-2005%E3%80%8DSZA-Template/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://lim-23333.github.io/2020/02/25/%E3%80%8CUVALive-4487%E3%80%8DExclusive-OR/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -673,20 +906,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
